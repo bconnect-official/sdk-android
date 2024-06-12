@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <net.bconnect.sdk.BConnectButtonView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:activeAuthentification="true"
+        app:discoveryUrl="https://api.bconnect-qualif.net/sso/v2/oauth2/bconnect/.well-known/openid-configuration"
+        app:clientId="votre client ID"
+        app:scope="openid email given_name family_name name risk_score"
+        app:redirectUri="votre redirect uri"
+        app:style="icon" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <net.bconnect.sdk.BConnectButtonView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        app:activeAuthentification="true"
+        android:layout_height="wrap_content"
+        app:discoveryUrl="https://api.bconnect-qualif.net/sso/v2/oauth2/bconnect/.well-known/openid-configuration"
+        app:clientId="votre client ID"
+        app:scope="openid email given_name family_name name risk_score"
+        app:redirectUri="votre redirect uri"
+        app:style="standard" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <net.bconnect.sdk.BConnectButtonView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:discoveryUrl="https://api.bconnect-integ.net/sso/v2/oauth2/bconnect/.well-known/openid-configuration"
+        app:clientId="votre client ID"
+        app:scope="openid email given_name family_name name risk_score"
+        app:redirectUri="votre redirect uri"
+        app:style="identify" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <net.bconnect.sdk.BConnectButtonView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:clientId="votre client ID"
+        app:redirectUri="votre redirect uri"
+        app:scope="openid email given_name family_name name risk_score"
+        app:style="create" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <net.bconnect.sdk.BConnectButtonView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:clientId="votre client ID"
+        app:scope="openid email given_name family_name name risk_score"
+        app:redirectUri="votre redirect uri"
+        app:style="connect" />
+
+</LinearLayout>

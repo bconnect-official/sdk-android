@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BConnectButtonView">
+        <attr name="authUrl" format="string" />
+        <attr name="discoveryUrl" format="string" />
+        <attr name="tokenUrl" format="string" />
+        <attr name="redirectUri" format="string" />
+        <attr name="clientId" format="string" />
+        <attr name="activeAuthentification" format="boolean" />
+        <attr name="style" format="enum">
+            <enum name="icon" value="0"/>
+            <enum name="standard" value="1"/>
+            <enum name="connect" value="2"/>
+            <enum name="identify" value="3"/>
+            <enum name="create" value="4"/>
+        </attr>
+        <attr name="scope" format="string" />
+    </declare-styleable>
+</resources>
