@@ -80,7 +80,7 @@ class MainActivity : ComponentActivity() {
             var redirectUri by rememberSaveable { mutableStateOf("bconnect.test.app://bconnect") }
             var authUrl by rememberSaveable { mutableStateOf(DISCOVERY_URL_QUALIF) }
             var dropdownExpanded by rememberSaveable { mutableStateOf(false) }
-            var buttonStyleSelected by rememberSaveable { mutableStateOf(BConnectButtonStyle.CONNECT) }
+            var buttonStyleSelected by rememberSaveable { mutableStateOf(BConnectButtonStyle.STANDARD) }
             var activeAuthentication by rememberSaveable { mutableStateOf(false) }
             var scopeEmail by rememberSaveable { mutableStateOf(false) }
             var scopeGivenName by rememberSaveable { mutableStateOf(false) }

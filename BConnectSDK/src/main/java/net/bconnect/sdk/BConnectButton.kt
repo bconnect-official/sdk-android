@@ -67,10 +67,10 @@ fun BConnectButton(
         }
         .semantics(mergeDescendants = true) {}) {
         val imageUrl = when (style) {
-            BConnectButtonStyle.ICON -> "https://www.bconnect.net/sdk/button_transparent.svg"
-            BConnectButtonStyle.STANDARD -> "https://www.bconnect.net/sdk/notext_button_grey.svg"
+            BConnectButtonStyle.ICON -> "https://www.bconnect.net/sdk/bconnect_button.svg"
+            BConnectButtonStyle.STANDARD -> "https://www.bconnect.net/sdk/bconnect_largebutton_white.svg"
             BConnectButtonStyle.CREATE -> "https://www.bconnect.net/sdk/activate_button_grey.svg"
-            BConnectButtonStyle.IDENTIFY -> "https://www.bconnect.net/sdk/identify_button_grey.svg"
+            BConnectButtonStyle.IDENTIFY -> "https://www.bconnect.net/sdk/bconnect_signature_orange.svg"
             BConnectButtonStyle.CONNECT -> "https://www.bconnect.net/sdk/connect_button_grey.svg"
         }
         val contentDescription = when (style) {

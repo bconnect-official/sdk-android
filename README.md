@@ -46,7 +46,7 @@ BConnectButton(
 # Version XML
 Pour intégrer le bouton, rajouter la vue suivante : 
 ```xml
-<com.cb.bconnectsdk.BConnectButtonView
+<net.bconnect.sdk.BConnectButtonView
         android:layout_width="..."
         android:layout_height="..."
         app:clientId="votre clientId"
