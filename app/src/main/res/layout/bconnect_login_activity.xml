@@ -34,7 +34,7 @@
         app:clientId="votre client ID"
         app:scope="openid email given_name family_name name risk_score"
         app:redirectUri="votre redirect uri"
-        app:style="standard" />
+        app:style="largeWhiteNoBorder" />
 
     <View
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         app:clientId="votre client ID"
         app:scope="openid email given_name family_name name risk_score"
         app:redirectUri="votre redirect uri"
-        app:style="identify" />
+        app:style="bPremierWhite" />
 
     <View
         android:layout_width="match_parent"
@@ -61,7 +61,7 @@
         app:clientId="votre client ID"
         app:redirectUri="votre redirect uri"
         app:scope="openid email given_name family_name name risk_score"
-        app:style="create" />
+        app:style="logotypeWhite" />
 
     <View
         android:layout_width="match_parent"
@@ -74,6 +74,6 @@
         app:clientId="votre client ID"
         app:scope="openid email given_name family_name name risk_score"
         app:redirectUri="votre redirect uri"
-        app:style="connect" />
+        app:style="signatureOrange" />
 
 </LinearLayout>

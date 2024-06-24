@@ -3,28 +3,13 @@ package net.bconnect.sdk
 import android.os.Build
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
@@ -66,18 +51,8 @@ fun BConnectButton(
             )
         }
         .semantics(mergeDescendants = true) {}) {
-        val imageUrl = when (style) {
-            BConnectButtonStyle.ICON -> "https://www.bconnect.net/sdk/bconnect_button.svg"
-            BConnectButtonStyle.STANDARD -> "https://www.bconnect.net/sdk/bconnect_largebutton_white.svg"
-            BConnectButtonStyle.CREATE -> "https://www.bconnect.net/sdk/activate_button_grey.svg"
-            BConnectButtonStyle.IDENTIFY -> "https://www.bconnect.net/sdk/bconnect_signature_orange.svg"
-            BConnectButtonStyle.CONNECT -> "https://www.bconnect.net/sdk/connect_button_grey.svg"
-        }
-        val contentDescription = when (style) {
-            BConnectButtonStyle.ICON, BConnectButtonStyle.CONNECT, BConnectButtonStyle.STANDARD -> "Se connecter avec B Connect"
-            BConnectButtonStyle.CREATE -> "Créer son compte avec B Connect"
-            BConnectButtonStyle.IDENTIFY -> "S'identifier avec B Connect"
-        }
+        val imageUrl = style.getImageUrl()
+        val contentDescription = "Se connecter avec B Connect"
         val painter = rememberAsyncImagePainter(
             model = ImageRequest.Builder(LocalContext.current)
                 .decoderFactory(SvgDecoder.Factory())
@@ -88,25 +63,71 @@ fun BConnectButton(
         Image(
             painter = painter,
             contentDescription = contentDescription,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth().fillMaxHeight()
         )
     }
 }
 
 enum class BConnectButtonStyle {
     ICON,
-    STANDARD,
-    CONNECT,
-    IDENTIFY,
-    CREATE;
+    BPREMIER_BLUE,
+    BPREMIER_WHITE,
+    LARGE_BLACK,
+    LARGE_BLUE,
+    LARGE_WHITE,
+    LARGE_WHITE_BW,
+    LARGE_WHITE_NO_BORDER,
+    LARGE_WHITE_NO_BORDER_BW,
+    LOGOTYPE_BLUE,
+    LOGOTYPE_BLUE_BW,
+    LOGOTYPE_WHITE,
+    LOGOTYPE_WHITE_BW,
+    SIGNATURE_BLACK,
+    SIGNATURE_BLUE,
+    SIGNATURE_ORANGE,
+    SIGNATURE_WHITE;
+
+    fun getImageUrl() : String {
+        return when (this) {
+            ICON -> "https://www.bconnect.net/sdk/bconnect_button.svg"
+            LARGE_WHITE -> "https://www.bconnect.net/sdk/bconnect_largebutton_white.svg"
+            BPREMIER_BLUE -> "https://www.bconnect.net/sdk/bconnect_bpremier_blue.svg"
+            BPREMIER_WHITE -> "https://www.bconnect.net/sdk/bconnect_bpremier_white.svg"
+            LARGE_BLACK -> "https://www.bconnect.net/sdk/bconnect_largebutton_black.svg"
+            LARGE_BLUE -> "https://www.bconnect.net/sdk/bconnect_largebutton_blue.svg"
+            LARGE_WHITE_BW -> "https://www.bconnect.net/sdk/bconnect_largebutton_white_bw.svg"
+            LARGE_WHITE_NO_BORDER -> "https://www.bconnect.net/sdk/bconnect_largebutton_white_noborder.svg"
+            LARGE_WHITE_NO_BORDER_BW -> "https://www.bconnect.net/sdk/bconnect_largebutton_white_noborder_bw.svg"
+            LOGOTYPE_BLUE -> "https://www.bconnect.net/sdk/bconnect_logotype_blue.svg"
+            LOGOTYPE_BLUE_BW -> "https://www.bconnect.net/sdk/bconnect_logotype_blue_bw.svg"
+            LOGOTYPE_WHITE -> "https://www.bconnect.net/sdk/bconnect_logotype_white.svg"
+            LOGOTYPE_WHITE_BW -> "https://www.bconnect.net/sdk/bconnect_logotype_white_bw.svg"
+            SIGNATURE_BLACK -> "https://www.bconnect.net/sdk/bconnect_signature_black.svg"
+            SIGNATURE_BLUE -> "https://www.bconnect.net/sdk/bconnect_signature_blue.svg"
+            SIGNATURE_ORANGE -> "https://www.bconnect.net/sdk/bconnect_signature_orange.svg"
+            SIGNATURE_WHITE -> "https://www.bconnect.net/sdk/bconnect_signature_white.svg"
+        }
+    }
 
     companion object {
         internal fun fromInt(value: Int): BConnectButtonStyle {
             return when (value) {
-                1 -> STANDARD
-                2 -> CONNECT
-                3 -> IDENTIFY
-                4 -> CREATE
+                1 -> BPREMIER_BLUE
+                2 -> BPREMIER_WHITE
+                3 -> LARGE_BLACK
+                4 -> LARGE_BLUE
+                5 -> LARGE_WHITE
+                6 -> LARGE_WHITE_BW
+                7 -> LARGE_WHITE_NO_BORDER
+                8 -> LARGE_WHITE_NO_BORDER_BW
+                9 -> LOGOTYPE_BLUE
+                10 -> LOGOTYPE_BLUE_BW
+                11 -> LOGOTYPE_WHITE
+                12 -> LOGOTYPE_WHITE_BW
+                13 -> SIGNATURE_BLACK
+                14 -> SIGNATURE_BLUE
+                15 -> SIGNATURE_ORANGE
+                16 -> SIGNATURE_WHITE
                 else -> ICON
             }
         }

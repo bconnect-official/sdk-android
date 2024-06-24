@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -56,7 +55,6 @@ import net.bconnect.demo.app.ui.theme.BConnectAndroidSDKTheme
 import net.bconnect.sdk.BConnectButton
 import net.bconnect.sdk.BConnectButtonStyle
 import net.bconnect.sdk.BConnectIntentParser
-import net.bconnect.sdk.BConnectScope.*
 
 private const val DISCOVERY_URL_INTEG =
     "https://api.bconnect-integ.net/sso/v2/oauth2/bconnect/.well-known/openid-configuration"
@@ -80,7 +78,7 @@ class MainActivity : ComponentActivity() {
             var redirectUri by rememberSaveable { mutableStateOf("bconnect.test.app://bconnect") }
             var authUrl by rememberSaveable { mutableStateOf(DISCOVERY_URL_QUALIF) }
             var dropdownExpanded by rememberSaveable { mutableStateOf(false) }
-            var buttonStyleSelected by rememberSaveable { mutableStateOf(BConnectButtonStyle.STANDARD) }
+            var buttonStyleSelected by rememberSaveable { mutableStateOf(BConnectButtonStyle.LARGE_WHITE) }
             var activeAuthentication by rememberSaveable { mutableStateOf(false) }
             var scopeEmail by rememberSaveable { mutableStateOf(false) }
             var scopeGivenName by rememberSaveable { mutableStateOf(false) }
@@ -97,6 +95,7 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .background(Color(0xFF444444))
                             .verticalScroll(rememberScrollState())
                     ) {
                         Spacer(modifier = Modifier.height(40.dp))
@@ -125,36 +124,14 @@ class MainActivity : ComponentActivity() {
                             Spacer(modifier = Modifier.width(40.dp))
                         }
                         if (dropdownExpanded) Column {
-                            DropdownMenuItem(
-                                text = { Text("ICON") },
-                                onClick = {
-                                    buttonStyleSelected =
-                                        BConnectButtonStyle.ICON; dropdownExpanded = false;
-                                })
-                            DropdownMenuItem(
-                                text = { Text("CONNECT") },
-                                onClick = {
-                                    buttonStyleSelected =
-                                        BConnectButtonStyle.CONNECT; dropdownExpanded = false;
-                                })
-                            DropdownMenuItem(
-                                text = { Text("STANDARD") },
-                                onClick = {
-                                    buttonStyleSelected =
-                                        BConnectButtonStyle.STANDARD; dropdownExpanded = false;
-                                })
-                            DropdownMenuItem(
-                                text = { Text("IDENTIFY") },
-                                onClick = {
-                                    buttonStyleSelected =
-                                        BConnectButtonStyle.IDENTIFY; dropdownExpanded = false;
-                                })
-                            DropdownMenuItem(
-                                text = { Text("CREATE") },
-                                onClick = {
-                                    buttonStyleSelected =
-                                        BConnectButtonStyle.CREATE; dropdownExpanded = false;
-                                })
+                            BConnectButtonStyle.entries.forEach {
+                                DropdownMenuItem(
+                                    text = { Text(it.name) },
+                                    onClick = {
+                                        buttonStyleSelected = it
+                                        dropdownExpanded = false
+                                    })
+                            }
                         }
                         Spacer(modifier = Modifier.height(60.dp))
                         BConnectButton(

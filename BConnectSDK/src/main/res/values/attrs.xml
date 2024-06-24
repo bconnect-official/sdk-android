@@ -9,10 +9,22 @@
         <attr name="activeAuthentification" format="boolean" />
         <attr name="style" format="enum">
             <enum name="icon" value="0"/>
-            <enum name="standard" value="1"/>
-            <enum name="connect" value="2"/>
-            <enum name="identify" value="3"/>
-            <enum name="create" value="4"/>
+            <enum name="bPremierBlue" value="1"/>
+            <enum name="bPremierWhite" value="2"/>
+            <enum name="largeBlack" value="3"/>
+            <enum name="largeBlue" value="4"/>
+            <enum name="largeWhite" value="5"/>
+            <enum name="largeWhiteBw" value="6"/>
+            <enum name="largeWhiteNoBorder" value="7"/>
+            <enum name="largeWhiteNoBorderBw" value="8"/>
+            <enum name="logotypeBlue" value="9"/>
+            <enum name="logotypeBlueBw" value="10"/>
+            <enum name="logotypeWhite" value="11"/>
+            <enum name="logotypeWhiteBw" value="12"/>
+            <enum name="signatureBlack" value="13"/>
+            <enum name="signatureBlue" value="14"/>
+            <enum name="signatureOrange" value="15"/>
+            <enum name="signatureWhite" value="16"/>
         </attr>
         <attr name="scope" format="string" />
     </declare-styleable>

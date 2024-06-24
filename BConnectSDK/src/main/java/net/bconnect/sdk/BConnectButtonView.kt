@@ -9,8 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
-import com.bumptech.glide.Glide
-import net.bconnect.sdk.BConnectButtonStyle.*
 import net.bconnect.sdk.BConnectScope.*
 
 
@@ -57,18 +55,13 @@ class BConnectButtonView @JvmOverloads constructor(
                         this@BConnectButtonView
                     )
                     val image = inflatedView.findViewById<ImageView>(R.id.bconnectImageView)
-                    val imageUrl = when (style) {
-                        ICON -> "https://www.bconnect.net/sdk/button_transparent.svg"
-                        STANDARD -> "https://www.bconnect.net/sdk/notext_button_grey.svg"
-                        CREATE -> "https://www.bconnect.net/sdk/activate_button_grey.svg"
-                        IDENTIFY -> "https://www.bconnect.net/sdk/identify_button_grey.svg"
-                        CONNECT -> "https://www.bconnect.net/sdk/connect_button_grey.svg"
-                    }
-                    val contentDescription = when (style) {
-                        ICON, CONNECT, STANDARD -> "Se connecter avec B Connect"
-                        CREATE -> "Créer son compte avec B Connect"
-                        IDENTIFY -> "S'identifier avec B Connect"
-                    }
+                    val imageUrl = style.getImageUrl()
+                    val contentDescription = "Se connecter avec B Connect"
+                    //val contentDescription = when (style) {
+                    //    ICON, CONNECT, STANDARD -> "Se connecter avec B Connect"
+                    //    CREATE -> "Créer son compte avec B Connect"
+                    //    IDENTIFY -> "S'identifier avec B Connect"
+                    //}
                     image.contentDescription = contentDescription
                     image.loadUrl(imageUrl)
                     inflatedView.setOnClickListener {
