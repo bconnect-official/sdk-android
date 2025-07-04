@@ -13,7 +13,8 @@ object BConnectIntentParser {
             TokenRequestObject(
                 authorizationCode = params["code"] as String,
                 codeChallenge = codeVerifier!!,
-                state = params["state"]
+                state = params["state"],
+                nonce = nonce,
             )
         } else {
             null
@@ -24,5 +25,6 @@ object BConnectIntentParser {
 data class TokenRequestObject(
     val authorizationCode: String,
     val codeChallenge: String,
-    val state: String?
+    val state: String?,
+    val nonce: String?
 )

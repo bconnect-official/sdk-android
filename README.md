@@ -64,7 +64,7 @@ Chacune de ces variables est utilisée dans l'application de démonstration pour
 
 ## Récupération des données pour finaliser la connexion
 Une fois que l'utilisateur se sera connecté à BConnect, avec ou sans connexion banque, l'activité vers laquelle vous avez déclaré votre Deeplink sera rouverte.
-Dans la methode `onCreate` vous pourrez utiliser le SDK pour y recevoir les différentes données dont vous aurez besoin pour finaliser la connexion : 
+Dans la methode `onCreate`, ou `onNewIntent` vous pourrez utiliser le SDK pour y recevoir les différentes données dont vous aurez besoin pour finaliser la connexion : 
 ```kotlin
 val tokenRequestObject = BConnectIntentParser.parseAuthorizationCodeIntent(intent)
 ```

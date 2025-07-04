@@ -56,6 +56,7 @@ internal object BConnectServiceHelper {
         val authRequest = authRequestBuilder.build()
         val authIntent = authService.getAuthorizationRequestIntent(authRequest)
         codeVerifier = authRequest.codeVerifier
+        nonce = authRequest.nonce
         context.startActivity(authIntent)
     }
 }

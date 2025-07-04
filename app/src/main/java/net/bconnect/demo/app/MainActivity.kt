@@ -292,7 +292,7 @@ class MainActivity : ComponentActivity() {
                     if (showSuccessDialog && bconnectParsedIntent != null)
                         LoginSuccessDialog(
                             onConfirmation = { showSuccessDialog = false },
-                            dialogTitle = "Bravo, vous êtes connectés !",
+                            dialogTitle = "Bravo, vous pouvez vous connecter !",
                             dialogText = "State : ${bconnectParsedIntent.state}\nCode challenge : ${bconnectParsedIntent.codeChallenge}\nAuthorization Code : ${bconnectParsedIntent.authorizationCode}",
                             icon = Icons.Default.Done
                         )

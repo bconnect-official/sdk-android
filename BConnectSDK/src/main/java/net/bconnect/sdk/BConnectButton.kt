@@ -16,6 +16,7 @@ import coil.request.ImageRequest
 import coil.size.Scale
 
 internal var codeVerifier: String? = null
+internal var nonce: String? = null
 private const val AUTH_URL = "https://bconnect.net/a/oauth2/authorize"
 private const val TOKEN_URL = "https://api.b.connect.net/sso/v2/oauth2/bconnect/access_token"
 private const val DISCOVERY_URL = "https://api.bconnect.net/sso/v2/oauth2/bconnect/.well-known/openid-configuration"
